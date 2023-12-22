@@ -88,14 +88,14 @@ plot(x,co2,'-r','LineWidth',2)
 grid minor
 title('Concentraciones de CO2 medidas en Mauna Loa')
 ylabel('CO2 [ppm]')
-xlabel('Mmedicion de la concentración [años]')
+xlabel('Tiempo [años]')
 xlim([1958,2023])
 hold on
 plot(x,datos2(:,4),'--g','LineWidth',2)
 plot(x,datos2(:,5),'--y','LineWidth',2)
 plot(x,datos2(:,3),'-m','LineWidth',2)
 plot(x,pendiente,'-b','LineWidth',2)
-legend('Datos','Suma media y desviacion','resta media y desviacion', 'Media','Pendiente')
+legend('Datos','Suma media y desviacion','resta media y desviacion', 'Media','Pendiente','Location','best')
 hold off
 % 
 figure(2)
@@ -104,8 +104,12 @@ hold on
 plot(x,datos_st(:,4),'--g','LineWidth',2)
 plot(x,datos_st(:,5),'--y','LineWidth',2)
 plot(x,datos_st(:,2),'-m','LineWidth',2)
-legend('Datos sin tendencia','Suma desviacion y media','Resta desviacion y media', 'Media')
-
+legend('Datos sin tendencia','Suma desviacion y media','Resta desviacion y media', 'Media','Location','best')
+axis tight
+grid minor
+xlabel('Tiempo [años]')
+ylabel(CO2 [ppm])
+title('Datos sin tendencia')
 %% Item 6
 
 figure(3) %Grafico de la media movil centrada
@@ -114,8 +118,12 @@ plot(x,co2,'-r','LineWidth',2)
 plot(timemov,datos5(:,1),'-g','LineWidth',2)
 plot(timemov,datos5(:,3),'--m','LineWidth',2)
 plot(timemov,datos5(:,4),'--b','LineWidth',2)
-legend('Datos', 'Media movil', 'Suma', 'Resta')
+legend('Datos', 'Media movil', 'Suma', 'Resta','Location','best')
 axis tight
+grid minor
+xlabel('Tiempo [años]')
+ylabel('CO2 [ppm]')
+title('Grafico de la media movil centrada')
 
 t61=x(61:end);
 figure(4) %Grafico de la media movil perdiendo datos del inicio
@@ -126,6 +134,10 @@ plot(t61,datos5(:,3),'--m','LineWidth',2)
 plot(t61,datos5(:,4),'--b','LineWidth',2)
 legend('Datos', 'Media movil', 'Suma', 'Resta')
 axis tight
+grid minor
+xlabel('Tiempo [años]')
+ylabel('CO2 [ppm]')
+title('Grafico de la media movil perdiendo datos del inicio')
 
 t61=x(1:end-60);
 figure(5) %Grafico de la media movil perdiendo datos del final
@@ -136,4 +148,7 @@ plot(t61,datos5(:,3),'--m','LineWidth',2)
 plot(t61,datos5(:,4),'--b','LineWidth',2)
 legend('Datos', 'Media movil', 'Suma', 'Resta')
 axis tight
-
+grid minor
+xlabel('Tiempo [años]')
+ylabel('CO2 [ppm]')
+title('Grafico de la media movil perdiendo datos del inicio')
